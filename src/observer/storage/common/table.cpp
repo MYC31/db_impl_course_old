@@ -132,7 +132,24 @@ RC Table::destroy(const char* dir) {
 
   //TODO 清理所有的索引相关文件数据与索引元数据
 
-  return RC::GENERIC_ERROR;
+  const char *table_name = name();
+  std::string data_file = table_data_file(base_dir_.c_str(), table_name);
+  std::remove(data_file.c_str());
+  std::string meta_file = table_meta_file(base_dir_.c_str(), table_name);
+  std::remove(meta_file.c_str());
+
+  const char *base_dir = base_dir_.c_str();
+  const int index_num = table_meta_.index_num();
+  for (int i = 0; i < index_num; i++) {
+    const IndexMeta *index_meta = table_meta_.index(i);
+    std::string index_file = table_index_file(base_dir, table_name, index_meta->name());
+    std::remove(index_file.c_str());
+  }
+
+  data_buffer_pool_->purge_all_pages(file_id_);
+  data_buffer_pool_->close_file(file_id_);
+
+  return RC::SUCCESS;
 }
 
 

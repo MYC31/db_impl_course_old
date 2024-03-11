@@ -86,6 +86,22 @@ RC Db::drop_table(const char* table_name)
 
   //TODO 删除成功的话，从表list中将它删除
 
+  RC rc = RC::SUCCESS;
+  Table *table = nullptr;
+
+  auto it = opened_tables_.find(table_name);
+  if (it == opened_tables_.end()) {
+    LOG_WARN("%s does not exist.", table_name);
+    return RC::GENERIC_ERROR;
+  }
+  table = it->second;
+  rc = table->destroy(path_.c_str());
+  if (rc == RC::SUCCESS) {
+    LOG_INFO("Drop table success. table name=%s", table_name);
+    delete it->second;
+    opened_tables_.erase(it);
+    return rc;
+  }
   return RC::GENERIC_ERROR;
 }
 
