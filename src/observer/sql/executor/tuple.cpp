@@ -257,11 +257,30 @@ void TupleRecordConverter::add_record(const char *record)
       } break;
       case DATES: {
         // TODO 从record中读取存储的日期
+        int timestamp_i = *(int *)(record + field_meta->offset());
 
         // TODO 将日期转换为满足输出格式的字符串，注意这里月份和天数，不足两位时需要填充0
+#define SEC_PER_DAY 24*60*60
+        std::time_t timestamp = (std::time_t)timestamp_i;
+        timestamp *= SEC_PER_DAY;
+        std::tm *timeinfo = std::localtime(&timestamp);
+
+        int y = timeinfo->tm_year + 1900;
+        int m = timeinfo->tm_mon + 1;
+        int d = timeinfo->tm_mday;
+
+        std::string y_str = std::to_string(y);
+        std::string m_str = std::to_string(m);
+        std::string d_str = std::to_string(d);
+
+        if (m < 10) m_str = '0' + m_str;
+        if (d < 10) d_str = '0' + d_str;
+
+        std::string time = y_str + '-' + m_str + '-' + d_str;
+        const char *time_cstr = time.c_str();
 
         // TODO 将字符串添加到tuple中
-
+        tuple.add(time_cstr, strlen(time_cstr));
       }break;
       default: {
         LOG_PANIC("Unsupported field type. type=%d", field_meta->type());

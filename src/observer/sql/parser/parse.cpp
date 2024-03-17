@@ -63,7 +63,16 @@ bool check_date(int y, int m, int d)
   // TODO 根据 y:year,m:month,d:day 校验日期是否合法
   // TODO 合法 return 0
   // TODO 不合法 return 1
-  return 1;
+  std::tm timeinfo = {0};
+  timeinfo.tm_year = y - 1900;
+  timeinfo.tm_mon = m - 1;
+  timeinfo.tm_mday = d;
+
+  std::time_t result = std::mktime(&timeinfo);
+  if (result == -1) {
+    return false;
+  }
+  return true;
 }
 
 int value_init_date(Value *value, const char *v) {
@@ -75,9 +84,21 @@ int value_init_date(Value *value, const char *v) {
   // 对读取的日期做合法性校验
   bool b = check_date(y,m,d);
   if(!b) return -1;
-  // TODO 将日期转换成整数
 
+  // TODO 将日期转换成整数
+  std::tm timeinfo = {0};
+  timeinfo.tm_year = y - 1900;
+  timeinfo.tm_mon = m - 1;
+  timeinfo.tm_mday = d;
+
+#define SEC_PER_DAY 24*60*60
+  std::time_t timestamp = std::mktime(&timeinfo);
+  timestamp /= SEC_PER_DAY;
+  int timestamp_i = (int)timestamp;
   // TODO 将value 的 data 属性修改为转换后的日期
+  value->type = DATES;
+  value->data = malloc(sizeof(timestamp_i));
+  memcpy(value->data, &timestamp_i, sizeof(timestamp_i));
 
   return 0;
 }
