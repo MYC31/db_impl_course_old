@@ -50,10 +50,32 @@ Frame *BPManager::alloc(int file_desc, PageNum page_num) {
    * 
    * 提示：调用BufferTag victim; lrucache.getVictim(&victim, not_pinned, (void*)(this) 来获得最近最少使用的页
    * 提示：调用disk_buffer_pool->flush_block()来刷新到磁盘
-   * 提示：调用lrucache.victim(victim, new_buffer_tag) 来将vitim页给替换了。
+   * 提示：调用lrucache.victim(victim, new_buffer_tag) 来将victim页给替换了。
    */
-  
-  return nullptr;
+  int index = -1;
+  for (int i = 0; i < BP_BUFFER_SIZE; i++) {
+    if (!allocated[i]) {
+      index = i;
+      break;
+    }
+  }
+
+  BufferTag new_tag = std::make_pair(file_desc, page_num);
+  if (index != -1) {
+    allocated[index] = true;
+    lrucache.put(new_tag, index);
+    return &frame[index];
+  }
+
+  BufferTag vic_tag;
+  int vic_index;
+  lrucache.getVictim(&vic_tag, not_pinned, (void*)this);
+  lrucache.get(vic_tag, &vic_index);
+  disk_buffer_pool->flush_block(&frame[vic_index]);
+  lrucache.victim(vic_tag, new_tag);
+  allocated[vic_index] = true;
+
+  return &frame[vic_index];
 }
 
 void BPManager::printLruCache() {

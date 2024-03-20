@@ -56,6 +56,19 @@ namespace cache {
            *    2.2 如果没有达到最大容量，则在_cache_items_list和_cache_items_map中插入新的
            */
 
+          auto it = _cache_items_map.find(key);
+          if (it == _cache_items_map.end()) {   /* element not found */
+            if (_cache_items_list.size() >= _max_size) {
+              return RC::BUFFERPOOL_NOBUF;
+            }
+            _cache_items_list.push_front(std::make_pair(key, value));
+            _cache_items_map.insert(std::make_pair(key, _cache_items_list.begin()));
+          } else {  /* element found */
+            _cache_items_list.erase(it->second);
+            _cache_items_list.push_front(std::make_pair(key, value));
+            it->second = _cache_items_list.begin();
+          }
+
           return RC::SUCCESS;
         }
 
@@ -67,6 +80,16 @@ namespace cache {
            *    将res_value设置为结果value。返回RC::SUCCESS
            */
 
+          auto it = _cache_items_map.find(key);
+          if (it == _cache_items_map.end()) {
+            return RC::NOTFOUND;
+          }
+          key_value_pair_t kv_pair = *(it->second);
+          _cache_items_list.erase(it->second);
+          _cache_items_list.push_front(kv_pair);
+          it->second = _cache_items_list.begin();
+          *res_value = kv_pair.second;
+
           return RC::SUCCESS;
         }
 
@@ -77,7 +100,8 @@ namespace cache {
            * key不存在，返回 false
            */
 
-          return false;
+          auto it = _cache_items_map.find(key);
+          return it == _cache_items_map.end();
         }
 
         size_t size() const {
@@ -86,7 +110,7 @@ namespace cache {
            * 返回LRU cache size
            */
           
-          return 0;
+          return _cache_items_list.size();
         }
 
         RC getVictim(key_t *vic_key, bool (*check)(const key_value_pair_t& kv, void *ctx), void *ctx) const {
@@ -99,6 +123,8 @@ namespace cache {
                * 被驱逐的项目应该满足check条件，check条件一般是: frame的Pin count为0.
                * 2. 返回 RC::SUCCESS
                */
+              *vic_key = it->first;
+              return RC::SUCCESS;
             }
           }
           return RC::NOTFOUND;
@@ -113,7 +139,16 @@ namespace cache {
            * 
            * 比如old_key是4，它的value是40, new_key是5，则删除{4, 40}，建立{5, 40}
            */
-          
+          auto it = _cache_items_map.find(old_key);
+          if (it == _cache_items_map.end()) {
+            return RC::NOTFOUND;
+          }
+          value_t value = it->second->second;
+          _cache_items_list.erase(it->second);
+          _cache_items_list.push_front(std::make_pair(new_key, value));
+          _cache_items_map.erase(old_key);
+          _cache_items_map.insert(std::make_pair(new_key, _cache_items_list.begin()));
+
           return RC::SUCCESS;
         }
 
