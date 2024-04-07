@@ -338,9 +338,15 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     // 如果是select t1.*，表名匹配的加入字段
     // 如果是select t1.age，表名+字段名匹配的加入字段
     auto fields = old_schema.fields();
-    std::unordered_map<std::pair<std::string, std::string>, int> tfmap;
-
-
+    for (auto attr : selects.attributes) {
+      for (auto it = fields.begin(); it != fields.end(); it++) {
+        if (!strcmp(attr.relation_name, it->table_name()) &&
+            !strcmp(attr.attribute_name, it->field_name())) {
+          join_schema.add(*it);
+          select_order.push_back((int)std::distance(fields.begin(), it));
+        }
+      }
+    }
     print_tuples.set_schema(join_schema);
 
     // 构建联查的conditions需要找到对应的表
@@ -367,6 +373,27 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     }
     //TODO 元组的拼接需要实现笛卡尔积
     //TODO 将符合连接条件的元组添加到print_tables中
+    std::vector<std::vector<Tuple>::const_iterator> its, ite, stack;
+    for (auto & tuple_set : tuple_sets) {
+      its.push_back(tuple_set.tuples().begin());
+      ite.push_back(tuple_set.tuples().end());
+      stack.push_back(tuple_set.tuples().begin());
+    }
+    while (true) {
+      Tuple t = merge_tuples(stack, select_order);
+      if (match_join_condition(&t, condition_idxs)) {
+        print_tuples.add(std::move(t));
+      }
+      int index = (int)stack.size() - 1;
+      for (auto it = stack.rbegin(); it != stack.rend(); ++it) {
+        (*it)++;
+        if (*it == ite.at(index)) {
+          *it = its.at(index);
+        } else { break; }
+        index--;
+      }
+      if (index < 0 && stack.at(0) == its.at(0)) { break; }
+    }
 
       print_tuples.print(ss);
     } else {
