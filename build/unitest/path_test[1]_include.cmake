@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mayechi/MAJOR/s-junior/AdvancedDB/db_impl_course/build/unitest/path_test[1]_tests.cmake")
+  include("/Users/mayechi/MAJOR/s-junior/AdvancedDB/db_impl_course/build/unitest/path_test[1]_tests.cmake")
+else()
+  add_test(path_test_NOT_BUILT path_test_NOT_BUILT)
+endif()

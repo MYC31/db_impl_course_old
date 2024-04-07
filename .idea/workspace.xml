@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="minidb" targetName="event_core_static" />
+      <config projectName="minidb" targetName="bitmap_test" />
+      <config projectName="minidb" targetName="mem_pool_test" />
+      <config projectName="minidb" targetName="pidfile_test" />
+      <config projectName="minidb" targetName="obclient" />
+      <config projectName="minidb" targetName="log_test" />
+      <config projectName="minidb" targetName="common" />
+      <config projectName="minidb" targetName="uninstall" />
+      <config projectName="minidb" targetName="event_static" />
+      <config projectName="minidb" targetName="path_test" />
+      <config projectName="minidb" targetName="observer_static" />
+      <config projectName="minidb" targetName="bp_manager_test" />
+      <config projectName="minidb" targetName="bplus_tree_test" />
+      <config projectName="minidb" targetName="rc_test" />
+      <config projectName="minidb" targetName="event_pthreads_static" />
+      <config projectName="minidb" targetName="jsoncpp_static" />
+      <config projectName="minidb" targetName="event_extra_static" />
+      <config projectName="minidb" targetName="md5_test" />
+      <config projectName="minidb" targetName="observer" />
+      <config projectName="minidb" targetName="common_static" />
+      <config projectName="minidb" targetName="client_performance_test" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="build" CONFIG_NAME="Debug" GENERATION_OPTIONS=".." />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b7bc60c-d36f-447b-bd00-43711b353d94" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/observer/sql/executor/execute_stage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/observer/sql/executor/execute_stage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/observer/sql/parser/parse_defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/observer/sql/parser/parse_defs.h" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="lru" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lru" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.4" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2d4g2hboHAoF2KiklE3M9wfWe5U" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.obclient.executor": "Run",
+    "CMake Application.observer.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "multi-select",
+    "last_opened_file_path": "/Users/mayechi/MAJOR/s-junior/AdvancedDB/db_impl_course",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="CMake Application.observer">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bitmap_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="bitmap_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="bitmap_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bp_manager_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="bp_manager_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="bp_manager_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="log_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="log_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="log_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mem_pool_test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="mem_pool_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="mem_pool_test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bplus_tree_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="bplus_tree_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="bplus_tree_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client_performance_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="client_performance_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="client_performance_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="common" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="common" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="common_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="common_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="event_core_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="event_core_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="event_extra_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="event_extra_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="event_pthreads_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="event_pthreads_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="event_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="event_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="jsoncpp_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="jsoncpp_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="md5_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="md5_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="md5_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="obclient" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="obclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="obclient">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="observer" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f ../../etc/observer.ini" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="observer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="observer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="observer_static" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="observer_static" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="path_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="path_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="path_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pidfile_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="pidfile_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="pidfile_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rc_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="rc_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="rc_test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.bplus_tree_test" />
+      <item itemvalue="CMake Application.client_performance_test" />
+      <item itemvalue="CMake Application.common" />
+      <item itemvalue="CMake Application.common_static" />
+      <item itemvalue="CMake Application.event_core_static" />
+      <item itemvalue="CMake Application.event_extra_static" />
+      <item itemvalue="CMake Application.event_pthreads_static" />
+      <item itemvalue="CMake Application.event_static" />
+      <item itemvalue="CMake Application.jsoncpp_static" />
+      <item itemvalue="CMake Application.md5_test" />
+      <item itemvalue="CMake Application.obclient" />
+      <item itemvalue="CMake Application.observer" />
+      <item itemvalue="CMake Application.observer_static" />
+      <item itemvalue="CMake Application.path_test" />
+      <item itemvalue="CMake Application.pidfile_test" />
+      <item itemvalue="CMake Application.rc_test" />
+      <item itemvalue="CMake Application.uninstall" />
+      <item itemvalue="Google Test.bitmap_test" />
+      <item itemvalue="Google Test.bp_manager_test" />
+      <item itemvalue="Google Test.log_test" />
+      <item itemvalue="Google Test.mem_pool_test" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b7bc60c-d36f-447b-bd00-43711b353d94" name="Changes" comment="" />
+      <created>1709272559635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709272559635</updated>
+      <workItem from="1709272561108" duration="1595000" />
+      <workItem from="1709449155958" duration="286000" />
+      <workItem from="1709449448582" duration="2725000" />
+      <workItem from="1709798658757" duration="1442000" />
+      <workItem from="1709875327708" duration="15239000" />
+      <workItem from="1709901447578" duration="5875000" />
+      <workItem from="1710060335656" duration="790000" />
+      <workItem from="1710075318406" duration="2807000" />
+      <workItem from="1710157367229" duration="7415000" />
+      <workItem from="1710468573592" duration="2954000" />
+      <workItem from="1710478932724" duration="3242000" />
+      <workItem from="1710593276630" duration="5745000" />
+      <workItem from="1710652248504" duration="2262000" />
+      <workItem from="1710654518703" duration="279000" />
+      <workItem from="1710654801752" duration="1765000" />
+      <workItem from="1710746237524" duration="1048000" />
+      <workItem from="1710747291468" duration="2886000" />
+      <workItem from="1710761240407" duration="233000" />
+      <workItem from="1710761477335" duration="6862000" />
+      <workItem from="1710845695767" duration="10300000" />
+      <workItem from="1710919807220" duration="7608000" />
+      <workItem from="1710927464857" duration="82000" />
+      <workItem from="1711083756623" duration="1714000" />
+      <workItem from="1711085477713" duration="209000" />
+      <workItem from="1711085791683" duration="43000" />
+      <workItem from="1711085891298" duration="9000" />
+      <workItem from="1711859741441" duration="135000" />
+      <workItem from="1712466486902" duration="10940000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>

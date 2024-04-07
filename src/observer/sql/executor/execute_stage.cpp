@@ -219,8 +219,36 @@ bool match_join_condition(const Tuple *res_tuple,
   // condition_idxs 是 C x 3 数组
   // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
   //TODO 判断表中某一行 res_tuple 是否满足多表联查条件即：左值=右值
-
-  return true;
+  bool retval = true;
+  for (auto cond : condition_idxs) {
+    const TupleValue &tuple_left = res_tuple->get(cond.at(0));
+    const TupleValue &tuple_right = res_tuple->get(cond.at(2));
+    int cmp_res = tuple_left.compare(tuple_right);
+    switch (cond.at(1)) {
+      case EQUAL_TO: {
+        retval = cmp_res == 0;
+      } break;
+      case LESS_EQUAL: {
+        retval = cmp_res <= 0;
+      } break;
+      case NOT_EQUAL: {
+        retval = cmp_res != 0;
+      } break;
+      case LESS_THAN: {
+        retval = cmp_res < 0;
+      } break;
+      case GREAT_EQUAL: {
+        retval = cmp_res >= 0;
+      } break;
+      case GREAT_THAN: {
+        retval = cmp_res > 0;
+      } break;
+      default: {
+        retval = false;
+      }
+    }
+  }
+  return retval;
 }
 
 // 将多段小元组合成一个大元组
@@ -231,6 +259,14 @@ Tuple merge_tuples(
   Tuple res_tuple;
   //TODO 先把每个字段都放到对应的位置上(temp_res)
   //TODO 再依次(orders)添加到大元组(res_tuple)里即可
+  for (auto it : temp_tuples) {
+    auto values_ = it->values();
+    temp_res.insert(temp_res.end(), values_.begin(), values_.end());
+  }
+  for (auto index : orders) {
+    res_tuple.add(temp_res.at(index));
+  }
+  return res_tuple;
 }
 
 // 这里没有对输入的某些信息做合法性校验，比如查询的列名、where条件中的列名等，没有做必要的合法性校验
@@ -301,6 +337,10 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     // 如果是select * ，添加所有字段
     // 如果是select t1.*，表名匹配的加入字段
     // 如果是select t1.age，表名+字段名匹配的加入字段
+    auto fields = old_schema.fields();
+    std::unordered_map<std::pair<std::string, std::string>, int> tfmap;
+
+
     print_tuples.set_schema(join_schema);
 
     // 构建联查的conditions需要找到对应的表
