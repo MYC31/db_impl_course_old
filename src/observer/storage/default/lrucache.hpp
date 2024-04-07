@@ -132,7 +132,7 @@ namespace cache {
 
         RC victim(key_t old_key, key_t new_key) {
           /** 
-           * @todo
+           * @todolr
            * 1. 如果old_key不存在，返回RC::NOTFOUND
            * 2. 将old_key删除，并将new_key和old_key对应的value插入到lrucache中，更新_cache_items_list和_cache_items_map
            *    调用者必须保证old_key是存在的。返回RC::SUCCESS
