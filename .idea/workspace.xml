@@ -42,6 +42,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7b7bc60c-d36f-447b-bd00-43711b353d94" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/build/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bin/observer" beforeDir="false" afterPath="$PROJECT_DIR$/build/bin/observer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bin/observer.log.20240407" beforeDir="false" afterPath="$PROJECT_DIR$/build/bin/observer.log.20240407" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/observer/CMakeFiles/observer.dir/sql/executor/execute_stage.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/observer/CMakeFiles/observer.dir/sql/executor/execute_stage.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/observer/sql/executor/execute_stage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/observer/sql/executor/execute_stage.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,11 +142,6 @@
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="bplus_tree_test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minidb" TARGET_NAME="bplus_tree_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="minidb" RUN_TARGET_NAME="bplus_tree_test">
@@ -288,7 +289,8 @@
       <workItem from="1711085891298" duration="9000" />
       <workItem from="1711859741441" duration="135000" />
       <workItem from="1712466486902" duration="14693000" />
-      <workItem from="1712491021014" duration="5132000" />
+      <workItem from="1712491021014" duration="7563000" />
+      <workItem from="1712537088040" duration="5524000" />
     </task>
     <servers />
   </component>
@@ -299,16 +301,5 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/observer/sql/executor/execute_stage.cpp</url>
-          <line>381</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

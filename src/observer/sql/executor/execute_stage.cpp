@@ -277,7 +277,7 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
   RC rc = RC::SUCCESS;
   Session *session = session_event->get_client()->session;
   Trx *trx = session->current_trx();
-  const Selects &selects = sql->sstr.selection;
+  const Selects selects = sql->sstr.selection;
 
   // 把所有的表和只跟这张表关联的condition都拿出来，生成最底层的select
   // 执行节点
@@ -338,12 +338,29 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     // 如果是select t1.*，表名匹配的加入字段
     // 如果是select t1.age，表名+字段名匹配的加入字段
     auto fields = old_schema.fields();
-    for (auto attr : selects.attributes) {
-      for (auto it = fields.begin(); it != fields.end(); it++) {
-        if (!strcmp(attr.relation_name, it->table_name()) &&
+    for (size_t i = 0; i < selects.attr_num; i++) {     // 这里要加上对 select * 和 select t1.* 情况的判断！！！
+      auto attr = selects.attributes[i];
+      if (attr.relation_name && strcmp(attr.attribute_name, "*") != 0) {
+        for (auto it = fields.begin(); it != fields.end(); it++) {
+//        printf("%s\n", attr.relation_name);
+//        std::cout << it->table_name() << std::endl;
+          if (!strcmp(attr.relation_name, it->table_name()) &&
             !strcmp(attr.attribute_name, it->field_name())) {
+            join_schema.add(*it);
+            select_order.push_back((int) std::distance(fields.begin(), it));
+          }
+        }
+      } else if (attr.relation_name && !strcmp(attr.attribute_name, "*")) {
+        for (auto it = fields.begin(); it != fields.end(); it++) {
+          if (!strcmp(attr.relation_name, it->table_name())) {
+            join_schema.add(*it);
+            select_order.push_back((int) std::distance(fields.begin(), it));
+          }
+        }
+      } else if (!attr.relation_name && !strcmp(attr.attribute_name, "*")) {
+        for (auto it = fields.begin(); it != fields.end(); it++) {
           join_schema.add(*it);
-          select_order.push_back((int)std::distance(fields.begin(), it));
+          select_order.push_back((int) std::distance(fields.begin(), it));
         }
       }
     }
@@ -374,12 +391,21 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     //TODO 元组的拼接需要实现笛卡尔积
     //TODO 将符合连接条件的元组添加到print_tables中
     std::vector<std::vector<Tuple>::const_iterator> its, ite, stack;
-    for (auto & tuple_set : tuple_sets) {
-      its.push_back(tuple_set.tuples().begin());
-      ite.push_back(tuple_set.tuples().end());
-      stack.push_back(tuple_set.tuples().begin());
+    bool is_empty = false;
+    for (std::vector<TupleSet>::const_reverse_iterator
+            rit = tuple_sets.rbegin(),
+            rend = tuple_sets.rend();
+            rit != rend; ++rit) {
+      if (rit->tuples().empty()) {
+        is_empty = true;
+        break;
+      }
+      its.push_back(rit->tuples().begin());
+      ite.push_back(rit->tuples().end());
+      stack.push_back(rit->tuples().begin());
     }
-    while (true) {
+
+    while (!is_empty) {
       Tuple t = merge_tuples(stack, select_order);
       if (match_join_condition(&t, condition_idxs)) {
         print_tuples.add(std::move(t));
