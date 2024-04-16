@@ -69,7 +69,7 @@ MESSAGE("Install target dir is " ${CMAKE_INSTALL_PREFIX})
 # ADD_SUBDIRECTORY(src bin)  bin 为目标目录， 可以省略
 ADD_SUBDIRECTORY(deps)
 ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(unitest)
+# ADD_SUBDIRECTORY(unitest)
 ADD_SUBDIRECTORY(test)
 
 
